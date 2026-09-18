@@ -1,0 +1,47 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cybersecurity-suite"
+version = "1.0.0"
+description = "A self-hosted authentication, security-scanning, and encrypted-chat Flask suite for authorized security testing."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Amirhossein Jafarnezhad" }]
+keywords = ["security", "flask", "vulnerability-scanner", "owasp", "cybersecurity"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Information Technology",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Topic :: Security",
+]
+dependencies = [
+    "Flask>=3.0,<4.0",
+    "flask-jwt-extended>=4.6,<5.0",
+    "Flask-Limiter>=3.8,<4.0",
+    "reportlab>=4.2,<5.0",
+    "cryptography>=43.0",
+    "safety>=3.2",
+    "bandit>=1.7",
+    "gunicorn>=22.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.3",
+    "pytest-cov>=4.1",
+    "ruff>=0.4",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 110
+target-version = "py310"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
